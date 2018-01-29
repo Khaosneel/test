@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="chat.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>PSPS</h1>
+
+<div id = "chatWindow">
+
+    <h1>PSPS Chat</h1>
     <div id="chat" style="overflow-y:scroll;height: 300px;"></div>
     
     <form id="input">
-        <input type="text" name="text" id="text">
-        <input type="submit" value="send" id="send">
+        <div class = "inputDiv">
+            <input type="text" name="text" id="text">
+            <input type="submit" value="Send" id="send">
+        </div>
     </form>    
 
 <script>
@@ -63,5 +69,8 @@
 
    
 </script>
+
+</div>
+
 </body>
 </html>

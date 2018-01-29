@@ -1,0 +1,41 @@
+html {
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    /*font-weight: 400;*/
+    overflow: hidden;
+}
+
+#chatWindow {
+    padding: 20px 10px 20px 10px;
+    margin: auto;
+    width: 370px;
+    height: 450px;
+    background-color: rgb(20, 3, 54);
+}
+
+#chatWindow h1 {
+    text-align: center;
+    color: white;
+    font-weight: lighter;
+}
+
+#chat {
+    padding: 5px;
+    border: solid 1px black;
+    margin: 0 0 10px 0;
+    background-color: white;
+    overflow: auto;
+}
+
+input[type="text"] {
+    width: 75%;
+    float: left;
+}
+
+input[type="submit"] {
+    width: 20%;
+    float: right;
+}
+
+.inputDiv {
+    margin: auto;
+}
