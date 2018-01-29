@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PSPS Chat</h1>
+    <div id="chat" style="overflow-y:scroll;height: 300px;"></div>
+    
+    <form id="input">
+        <input type="text" name="text" id="text">
+        <input type="submit" value="send" id="send">
+    </form>    
+
+<script>
+    document.getElementById('input').addEventListener('submit',sendmsg);
+
+    function sendmsg(e) {
+        e.preventDefault();
+
+        var msg = document.getElementById('text').value;
+        var par = "message="+msg;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'chatlog.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function () {
+            console.log(this.responseText);
+        }
+
+        xhr.send(par);
+        document.getElementById('text').value = "";
+    }
+
+    function loadLog() {
+        var par = "load";
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'chatlog.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function () {
+            if(this.status == 200){
+                var msg = JSON.parse(this.responseText);
+          
+                var output = '';
+          
+            for(var i in msg){
+                output += '<b>'+msg[i].message+'</b><br><i>'+msg[i].time+'</i><br><br>';
+                }   
+
+                document.getElementById('chat').innerHTML = output;
+            }   
+        }
+
+        xhr.send(par);
+    }
+    setInterval(loadLog,500);
+    
+
+   
+</script>
+</body>
+</html>
