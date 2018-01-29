@@ -42,8 +42,10 @@
         document.getElementById('text').value = "";
         
     }
-
+   
+    var old;
     function loadLog() {
+        
         var par = "load";
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'chatlog.php', true);
@@ -60,17 +62,31 @@
             for(var i in msg){
                 output += '<div class = "message"><b>'+msg[i].message+'</b><br><i>'+msg[i].time+'</i><br><br></div>';
                 }   
+<<<<<<< HEAD
 
                 document.getElementById('messages').innerHTML = output;
+=======
+                document.getElementById('chat').innerHTML = output;
+>>>>>>> acf4d024df82cde3e5700062f554339d8c793cc1
             }   
         }
 
         xhr.send(par);
+<<<<<<< HEAD
         var elem = document.getElementById('messages');
         elem.scrollTop = elem.scrollHeight;
+=======
+        var newH = document.getElementById('chat').scrollHeight - 20;
+        if (newH > old || old == null) {
+            old = document.getElementById('chat').scrollHeight - 20;
+            console.log(newH+' '+old);
+            document.getElementById('chat').scrollTop = newH;
+        }
+       
+>>>>>>> acf4d024df82cde3e5700062f554339d8c793cc1
     }
     setInterval(loadLog,500);
-    
+   
 
    
 </script>
