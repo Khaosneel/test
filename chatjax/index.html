@@ -44,6 +44,7 @@
     }
 
     function loadLog() {
+        var old = document.getElementById('chat').scrollHeight - 20;
         var par = "load";
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'chatlog.php', true);
@@ -60,13 +61,15 @@
             for(var i in msg){
                 output += '<b>'+msg[i].message+'</b><br><i>'+msg[i].time+'</i><br><br>';
                 }   
-
                 document.getElementById('chat').innerHTML = output;
             }   
         }
 
         xhr.send(par);
-        
+        var newH = document.getElementById('chat').scrollHeight - 20;
+        if (newH > old) {
+            document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
+        }
        
     }
     setInterval(loadLog,500);
