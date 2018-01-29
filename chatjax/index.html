@@ -40,6 +40,7 @@
 
         xhr.send(par);
         document.getElementById('text').value = "";
+        
     }
 
     function loadLog() {
@@ -49,6 +50,8 @@
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         xhr.onload = function () {
+            
+
             if(this.status == 200){
                 var msg = JSON.parse(this.responseText);
           
@@ -63,6 +66,8 @@
         }
 
         xhr.send(par);
+        var elem = document.getElementById('chat');
+        elem.scrollTop = elem.scrollHeight;
     }
     setInterval(loadLog,500);
     
