@@ -1,26 +1,25 @@
-const chat = document.getElementById('chat');
+const messages = document.getElementById('messages');
 
 function appendMessage() {
 	const message = document.getElementsByClassName('message')[0];
   const newMessage = message.cloneNode(true);
-  chat.appendChild(newMessage);
+  messages.appendChild(newMessage);
 }
 
 function getMessages() {
-	// Prior to getting your chat.
-  shouldScroll = chat.scrollTop + chat.clientHeight === chat.scrollHeight;
+	// Prior to getting your messages.
+  shouldScroll = messages.scrollTop + messages.clientHeight === messages.scrollHeight;
   /*
-   * Get your chat, we'll just simulate it by appending a new one syncronously.
+   * Get your messages, we'll just simulate it by appending a new one syncronously.
    */
-  appendMessage();
-  // After getting your chat.
+  // After getting your messages.
   if (!shouldScroll) {
     scrollToBottom();
   }
 }
 
 function scrollToBottom() {
-  chat.scrollTop = chat.scrollHeight;
+  messages.scrollTop = messages.scrollHeight;
 }
 
 scrollToBottom();

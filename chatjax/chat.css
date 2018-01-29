@@ -18,7 +18,7 @@ html {
     font-weight: lighter;
 }
 
-#chat {
+#messages {
     padding: 5px;
     border: solid 1px black;
     margin: 0 0 10px 0;
