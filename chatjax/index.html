@@ -8,19 +8,19 @@
     <title>Document</title>
 </head>
 <body>
+    <script src="chat.js"></script>
 
 <div id = "chatWindow">
 
     <h1>PSPS Chat</h1>
-    <div id="chat" style="overflow-y:scroll;height: 300px;"></div>
+    <div id="messages" style="overflow-y:scroll;height: 300px;"></div>
     
     <form id="input">
         <div class = "inputDiv">
             <input type="text" name="text" id="text">
             <input type="submit" value="Send" id="send">
         </div>
-    </form>    
-
+    </form>
 <script>
     document.getElementById('input').addEventListener('submit',sendmsg);
 
@@ -55,10 +55,10 @@
                 var output = '';
           
             for(var i in msg){
-                output += '<b>'+msg[i].message+'</b><br><i>'+msg[i].time+'</i><br><br>';
+                output += '<div class = "message"><b>'+msg[i].message+'</b><br><i>'+msg[i].time+'</i><br><br></div>';
                 }   
 
-                document.getElementById('chat').innerHTML = output;
+                document.getElementById('messages').innerHTML = output;
             }   
         }
 
