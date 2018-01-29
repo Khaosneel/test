@@ -42,9 +42,9 @@
         document.getElementById('text').value = "";
         
     }
-
+    var old;
     function loadLog() {
-        var old = document.getElementById('chat').scrollHeight - 20;
+        
         var par = "load";
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'chatlog.php', true);
@@ -67,8 +67,10 @@
 
         xhr.send(par);
         var newH = document.getElementById('chat').scrollHeight - 20;
-        if (newH > old) {
-            document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
+        if (newH > old || old == null) {
+            old = document.getElementById('chat').scrollHeight - 20;
+            console.log(newH+' '+old);
+            document.getElementById('chat').scrollTop = newH;
         }
        
     }
