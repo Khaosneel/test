@@ -13,7 +13,7 @@
 <div id = "chatWindow">
 
     <h1>PSPS Chat</h1>
-    <div id="chat" style="overflow-y:scroll;height: 300px;"></div>
+    <div id="chat" style="overflow-y:scroll;height: 300px;background: white"></div>
     
     <form id="input">
         <div class = "inputDiv">
@@ -83,7 +83,6 @@
 </script>
 
 </div>
-
 </body>
 
 </html>
