@@ -13,8 +13,9 @@
 <div id = "chatWindow">
 
     <h1>PSPS Chat</h1>
-    <div id="chat" style="overflow-y:scroll;height: 300px;background: white"></div>
-    
+    <span>Welcome to the support chat, *Insert user name here*</span>
+    <div id="chat" style="overflow-y:scroll;height: 250px;background: white"></div>
+    <BR>
     <form id="input">
         <div class = "inputDiv">
             <input type="text" name="text" id="text">
